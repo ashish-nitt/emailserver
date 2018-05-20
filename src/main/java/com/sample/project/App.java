@@ -10,6 +10,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.EntityManagerFactory;
 
@@ -22,6 +23,7 @@ import javax.persistence.EntityManagerFactory;
 @EnableJpaRepositories("com.sample.project.repository")
 @EntityScan("com.sample.project.model")
 @ComponentScan("com.sample.project")
+@EnableTransactionManagement
 public class App extends SpringBootServletInitializer {
     EntityManagerFactory entityManagerFactory;
 

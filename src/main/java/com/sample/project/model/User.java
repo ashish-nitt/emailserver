@@ -1,8 +1,6 @@
 package com.sample.project.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.context.annotation.Primary;
@@ -36,4 +34,10 @@ public class User {
     @OneToMany
     @JoinColumn(name = "emailUniqueId")
     Set<Email> sentEmails = new HashSet<>();
+
+    public User(@NotNull String emailId, @NotNull String userName, @NotNull String password) {
+        this.emailId = emailId;
+        this.userName = userName;
+        this.password = password;
+    }
 }
