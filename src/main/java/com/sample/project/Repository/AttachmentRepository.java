@@ -13,6 +13,6 @@ import javax.persistence.Lob;
  * Created by Ashish on 20-05-2018.
  */
 @Repository
-@Transactional
 public interface AttachmentRepository extends CrudRepository<Attachment, Long> {
+    Attachment findAttachmentByAttachmentId(Long attachmentId);
 }

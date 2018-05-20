@@ -17,8 +17,6 @@ import java.util.Set;
  * Created by Ashish on 20-05-2018.
  */
 @Entity
-@Data
-@NoArgsConstructor
 public class Email {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,8 +25,9 @@ public class Email {
     Long emailUniqueId;
 
     @ManyToOne(cascade = {})
-    @JoinColumn(name = "emailId")
-    @NotNull
+    @JoinTable(name = "email_owner",
+            joinColumns = @JoinColumn(name = "emailUniqueId"),
+            inverseJoinColumns = @JoinColumn(name = "emailId"))
     User copyOwner;
 
     @ManyToOne(cascade = {})
@@ -43,7 +42,7 @@ public class Email {
             joinColumns = @JoinColumn(name = "emailUniqueId"),
             inverseJoinColumns = @JoinColumn(name = "emailId"))
     @NotNull
-    Set<User> toUser = new HashSet<>();
+    Set<User> toUsers = new HashSet<>();
 
     @NotNull
     String subject;
@@ -93,16 +92,16 @@ public class Email {
         this.fromUser = fromUser;
     }
 
-    public Set<User> getToUser() {
-        return toUser;
+    public Set<User> getToUsers() {
+        return toUsers;
     }
 
-    public void setToUser(Set<User> toUser) {
-        this.toUser = toUser;
+    public void setToUsers(Set<User> toUser) {
+        this.toUsers = toUser;
     }
 
     public void addToUser(User toUser) {
-        this.toUser.add(toUser);
+        this.toUsers.add(toUser);
     }
 
     public String getSubject() {

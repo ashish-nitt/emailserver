@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by Ashish on 20-05-2018.
  */
 @Repository
-@Transactional
 public interface UserRepository extends CrudRepository<User, Long>{
     User findUserByEmailId(String emailId);
 }

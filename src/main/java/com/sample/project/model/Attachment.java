@@ -13,8 +13,6 @@ import javax.validation.constraints.NotNull;
  * Created by Ashish on 20-05-2018.
  */
 @Entity
-@Data
-@NoArgsConstructor
 public class Attachment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +26,11 @@ public class Attachment {
 
     @NotNull
     String attachmentType;
+
+    public Attachment() {
+        this.data = null;
+        this.attachmentType = "";
+    }
 
     public Attachment(@NotNull byte[] data, @NotNull String attachmentType) {
         this.data = data;
