@@ -28,4 +28,33 @@ public class Attachment {
 
     @NotNull
     String attachmentType;
+
+    public Attachment(@NotNull byte[] data, @NotNull String attachmentType) {
+        this.data = data;
+        this.attachmentType = attachmentType;
+    }
+
+    public Long getAttachmentId() {
+        return attachmentId;
+    }
+
+    public void setAttachmentId(Long attachmentId) {
+        this.attachmentId = attachmentId;
+    }
+
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
+    }
+
+    public String getAttachmentType() {
+        return attachmentType;
+    }
+
+    public void setAttachmentType(String attachmentType) {
+        this.attachmentType = attachmentType;
+    }
 }

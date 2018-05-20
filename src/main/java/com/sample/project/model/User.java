@@ -40,4 +40,52 @@ public class User {
         this.userName = userName;
         this.password = password;
     }
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Set<Email> getIncomingEmails() {
+        return incomingEmails;
+    }
+
+    public void setIncomingEmails(Set<Email> incomingEmails) {
+        this.incomingEmails = incomingEmails;
+    }
+
+    public void addIncomingEmail(Email incomingEmail) {
+        this.incomingEmails.add(incomingEmail);
+    }
+
+    public Set<Email> getSentEmails() {
+        return sentEmails;
+    }
+
+    public void setSentEmails(Set<Email> sentEmails) {
+        this.sentEmails = sentEmails;
+    }
+
+    public void addSentEmail(Email sentEmail) {
+        this.sentEmails.add(sentEmail);
+    }
 }
