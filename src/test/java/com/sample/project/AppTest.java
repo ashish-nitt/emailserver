@@ -59,5 +59,17 @@ public class AppTest
                 "subject2",
                 "content2",
                 "asdsdsadsad".getBytes());
+
+        System.out.println("All emails from user1@email.com");
+        for(Email email : emailService.findAllByCopyOwner("user1@email.com"))
+            System.out.println(email);
+
+        System.out.println("All incoming emails for user3@email.com");
+        for(Email email : emailService.findAllIncomingEmailsForUser("user3@email.com"))
+            System.out.println(email);
+
+        System.out.println("All sent emails from user1@email.com");
+        for(Email email : emailService.findAllSentEmailsForUser("user1@email.com"))
+            System.out.println(email);
     }
 }

@@ -163,4 +163,19 @@ public class Email {
     public void setUpdateTime(LocalDateTime updateTime) {
         this.updateTime = updateTime;
     }
+
+    @Override
+    public String toString() {
+        return "Email{" +
+                "emailUniqueId=" + emailUniqueId +
+                ", copyOwner=" + copyOwner +
+                ", fromUser=" + fromUser +
+                ", subject='" + subject + '\'' +
+                ", content='" + content + '\'' +
+                ", isRead=" + isRead +
+                ", conversationTopic='" + conversationTopic + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

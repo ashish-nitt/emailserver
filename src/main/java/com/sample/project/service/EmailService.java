@@ -16,6 +16,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -39,6 +40,21 @@ public class EmailService {
 
     public Email findEmailByEmailUniqueId(Long emailUniqueId) {
         return emailRepository.findEmailByEmailUniqueId(emailUniqueId);
+    }
+
+    public List<Email> findAllByCopyOwner(String emailId) {
+        User user = userService.findUserByEmailId(emailId);
+        return emailRepository.findAllByCopyOwner(user);
+    }
+
+    public List<Email> findAllSentEmailsForUser(String emailId) {
+        User user = userService.findUserByEmailId(emailId);
+        return emailRepository.findAllByCopyOwnerAndFromUser(user, user);
+    }
+
+    public List<Email> findAllIncomingEmailsForUser(String emailId) {
+        User user = userService.findUserByEmailId(emailId);
+        return emailRepository.findAllByCopyOwnerAndToUsers(user, user);
     }
 
     public void sendEmail(String from, String[] to, String subject, String content) {
