@@ -168,14 +168,8 @@ public class Email {
     public String toString() {
         return "Email{" +
                 "emailUniqueId=" + emailUniqueId +
-                ", copyOwner=" + copyOwner +
-                ", fromUser=" + fromUser +
+                ", fromUser=" + fromUser.getEmailId() +
                 ", subject='" + subject + '\'' +
-                ", content='" + content + '\'' +
-                ", isRead=" + isRead +
-                ", conversationTopic='" + conversationTopic + '\'' +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
                 '}';
     }
 }

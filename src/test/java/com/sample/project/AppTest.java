@@ -54,13 +54,31 @@ public class AppTest
                 new String[] {"user3@email.com", "user4@email.com"},
                 "subject1",
                 "content1");
+        emailService.sendEmail("user1@email.com",
+                new String[] {"user2@email.com", "user3@email.com"},
+                "subject2",
+                "content2");
+        emailService.sendEmail("user1@email.com",
+                new String[] {"user2@email.com", "user3@email.com"},
+                "subject3",
+                "content3");
         emailService.sendEmail("user2@email.com",
                 new String[] {"user3@email.com", "user4@email.com"},
-                "subject2",
-                "content2",
+                "subject4",
+                "content4",
+                "asdsdsadsad".getBytes());
+        emailService.sendEmail("user2@email.com",
+                new String[] {"user3@email.com", "user4@email.com"},
+                "subject5",
+                "content5",
+                "asdsdsadsad".getBytes());
+        emailService.sendEmail("user2@email.com",
+                new String[] {"user1@email.com", "user3@email.com"},
+                "subject6",
+                "content6",
                 "asdsdsadsad".getBytes());
 
-        System.out.println("All emails from user1@email.com");
+        System.out.println("All emails for user1@email.com");
         for(Email email : emailService.findAllByCopyOwner("user1@email.com"))
             System.out.println(email);
 
